@@ -2,15 +2,20 @@
 
 use Illuminate\Database\Seeder;
 
+/**
+ * Class DatabaseSeeder
+ */
 class DatabaseSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
-     *
-     * @return void
+     * Call all seeders in the proper order.
      */
     public function run()
     {
-        // $this->call('UsersTableSeeder');
+        $this->call([
+            BibleReferencesTableSeeder::class,
+            BibleTextsKjvTableSeeder::class,
+            BibleTextsAsvTableSeeder::class
+        ]);
     }
 }
